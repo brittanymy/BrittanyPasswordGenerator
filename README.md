@@ -64,8 +64,9 @@ Using console.log, the web browser gives the user a list of questions to guide t
 
 Setting a return value at the end of the function allows generated password to display through html. 
 
+SIDE NOTE 
 
-
+Web browser screenshot is located in assets folder. 
 
 https://github.com/brittanymy/BrittanyPasswordGenerator
 
