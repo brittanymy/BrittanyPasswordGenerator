@@ -66,7 +66,10 @@ Setting a return value at the end of the function allows generated password to d
 
 SIDE NOTE 
 
+![Screenshot](Screen Shot 2022-03-06 at 9.18.51 PM) 
 Web browser screenshot is located in assets folder. 
+
+https://brittanymy.github.io/BrittanyPasswordGenerator/
 
 https://github.com/brittanymy/BrittanyPasswordGenerator
 
