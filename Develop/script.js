@@ -2,30 +2,40 @@
 var generateBtn = document.querySelector("#generate");
 
 function randomInt (min, max) {
-    return Math.floor (Math.random()*(max - min) + min)
+  if (!max) {
+    max = min 
+    min = 0 
+  }
+  var randomNumber = Math.random ()
+  return Math.floor (min + (1 - randomNumber) * max)
 }
 
-function randomItem (list) {
-  return list [randomInt (0, list.Length -1)]
+function getRandomItem (list) {
+  return list [randomInt (list.length)]
 }
 
 function generatePassword() {
   console.log("Button Clicked!") // Confirmation button was clicked
   
-  // Give user prompts for password
-  var userInput = window.prompt ("How many characters would you like your password to be?") 
+  while (true) {
+    // Give user prompts for password
+    var userInput = window.prompt ("How many characters would you like your password to be?") 
 
-  var passwordLength = parseInt (userInput)
+    //Allows user to exit out of prompt 
+    if (userInput === null) {
+      return 
+    }
 
+    var passwordLength = parseInt (userInput)
+    
     // Set character length between 8-128
-  if (isNaN(passwordLength)) {
-    window.alert("That was not a number!")
-    return 
-  }
-
-  if (passwordLength < 8 && passwordLength > 128) {
-    window.alert ("Password length must be between 8 and 128 characters!")
-    return
+    if (isNaN(passwordLength)) {
+      window.alert("That was not a number!")
+    } else if (passwordLength < 8 && passwordLength > 128) {
+      window.alert ("Invalid password length! Length should be between 8 and 128 characters!") 
+    } else {
+      break
+    }
   }
 
     // Can include lowercase, uppercase, numeric or special characters
@@ -40,10 +50,9 @@ function generatePassword() {
   var upppercaseList = []
 
   var givenOptions = []
-  console.log (givenOptions)
 
-  for (var i =0; i < lowesrcaselist.Length; i++) {
-    upppercaseList [i] = lowesrcaselist [i].toLocaleUpperCase
+  for (var i =0; i < lowesrcaselist.length; i++) {
+    upppercaseList [i] = lowesrcaselist [i].toUpperCase() 
   }
 
   if (selectNumbers === true) {
@@ -62,26 +71,26 @@ function generatePassword() {
     givenOptions.push (upppercaseList)
   }
 
+ // Alternative option if no prompts are selected
+  if (givenOptions.length === 0) {
+    givenOptions.push(lowesrcaselist)
+  }
+
   // Validated input - At least 1 character type selected
 
   var selectedCharacters = ""
 
-
-
   for (var i = 0; i < passwordLength; i++) {
     var randomList = getRandomItem (givenOptions)
     var randomCharacter = getRandomItem (randomList)
-    console.log (randomCharacter)
+    selectedCharacters += randomCharacter
   }
 
-
-
-
-
   // Generate password for user based off of prompts
- 
+  console.log (selectedCharacters)
+  
   // Display generated password on page
-  return "Password will go here!" // 
+  return selectedCharacters
 }
 
 // Write password to the #password input
@@ -89,8 +98,14 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  if (!password) {
+    return
+  }
 
+  if (password) {
+    passwordText.textContent = password;
+  }
+  
 }
 
 // Add event listener to generate button
