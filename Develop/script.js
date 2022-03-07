@@ -69,7 +69,9 @@ function generatePassword() {
 
 
   for (var i = 0; i < passwordLength; i++) {
-    var randomItem = givenOptions [randomInt(0, givenOptions.Length - 1)]
+    var randomList = getRandomItem (givenOptions)
+    var randomCharacter = getRandomItem (randomList)
+    console.log (randomCharacter)
   }
 
 
