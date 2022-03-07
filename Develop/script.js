@@ -14,6 +14,7 @@ function getRandomItem (list) {
   return list [randomInt (list.length)]
 }
 
+// Password generation function
 function generatePassword() {
   console.log("Button Clicked!") // Confirmation button was clicked
   

@@ -46,3 +46,26 @@ You are required to submit the following for review:
 
 - - -
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+
+MY README COMMENTS
+
+Script contains proper functions and variables to successfully generate a password for the user based off of selected prompts. 
+
+Global functions allow web browser to generate random numbers using a minimum and maximum parameter. 
+
+Selected prompts can include random numbers, symbols, lowercase, or uppercase letters. 
+
+If user decides to cancel their character length selection, they will be given the option to exit the prompt. 
+
+Selecting 'cancel' during prompted questions will not give the user those canceled selections. 
+
+Using console.log, the web browser gives the user a list of questions to guide them through the prompt. 
+
+Setting a return value at the end of the function allows generated password to display through html. 
+
+
+
+
+https://github.com/brittanymy/BrittanyPasswordGenerator
+
